@@ -18,8 +18,7 @@ e salve a saida como uma secret
  durante a criação do seu modelo na sessão gerenciamento sub-sessão Automatização defina seu [script de inicialização](https://cloud.google.com/compute/docs/startupscript?hl=pt-br) 
  
 ```bash
-compute --project "testes-desenvolvimento-260917" instance-groups managed rolling-action 
-start-update instance-group-1 --zone southamerica-east1-b --version template=modelo-update
+gcloud compute instance-groups managed rolling-action replace instance-group-1
 ```
 
 ###### Observações: 
