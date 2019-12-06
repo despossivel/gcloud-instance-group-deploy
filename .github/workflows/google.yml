@@ -16,4 +16,4 @@ jobs:
           PROJECT_ID: ${{secrets.GCLOUD_PROJECT_ID}}
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
         with:
-          args: compute instance-groups managed rolling-action "instance-group-1" replace
+          args: gcloud compute instance-groups managed rolling-action replace instance-group-1
