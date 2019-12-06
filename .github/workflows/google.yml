@@ -1,0 +1,19 @@
+name: gcloud
+on: 
+  push:
+    branches: 
+      - 'master'
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions-hub/gcloud@master
+        env:
+          PROJECT_ID: ${{secrets.GCLOUD_PROJECT_ID}}
+          APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+        with:
+          args: gcloud compute instance-groups managed rolling-action start-update instance-group-1 --version template=modelo-update --maxUnavailable 1
